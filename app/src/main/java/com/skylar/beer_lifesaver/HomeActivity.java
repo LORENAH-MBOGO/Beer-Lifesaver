@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == mFindBeerStyle) {
             String userInput = mBeerInput.getText().toString();
-            Intent intent = new Intent(HomeActivity.this, BeersStyleListActivity.class);
+            Intent intent = new Intent(HomeActivity.this, BeerStyleListActivity.class);
             startActivity(intent);
         }
         if (view == mSaved) {

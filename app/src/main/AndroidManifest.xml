@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.skylar.beer_lifesaver">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,9 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".BeerStyleDetailActivity"></activity>
+        <activity android:name=".BeerStyleListActivity"></activity>
         <activity android:name=".SavedBeerStyeListActivity" />
-        <activity android:name=".BeersStyleListActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".RegisterActivity" />
