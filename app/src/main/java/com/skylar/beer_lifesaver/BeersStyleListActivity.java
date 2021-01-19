@@ -6,7 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
 
 public class BeersStyleListActivity extends AppCompatActivity {
     public static final String TAG = BeersStyleListActivity.class.getSimpleName();

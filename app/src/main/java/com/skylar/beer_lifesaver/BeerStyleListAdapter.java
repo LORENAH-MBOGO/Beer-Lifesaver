@@ -1,5 +1,14 @@
 package com.skylar.beer_lifesaver;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
 public class BeerStyleListAdapter {
 
     private ArrayList<BeerStyle> mBeerStyles = new ArrayList<>();
