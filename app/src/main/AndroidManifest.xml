@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".SavedBeerStyeListActivity"></activity>
+        <activity android:name=".BeerStyleDetailActivity"></activity>
+        <activity android:name=".SavedBeerStyeListActivity" />
         <activity android:name=".BeersStyleListActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".AboutActivity" />
