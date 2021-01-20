@@ -27,7 +27,7 @@
             android:maxLines="1"
             android:paddingStart="5dp"
             android:singleLine="true"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
 
         <EditText
@@ -40,7 +40,7 @@
             android:maxLines="1"
             android:paddingStart="5dp"
             android:singleLine="true"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
 
         <EditText
@@ -54,7 +54,7 @@
             android:maxLines="1"
             android:paddingStart="5dp"
             android:singleLine="true"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/password"
@@ -66,7 +66,7 @@
             android:maxLines="1"
             android:paddingStart="5dp"
             android:singleLine="true"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
 
         <Button
@@ -75,7 +75,7 @@
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:text="Register"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:background="@color/colorPrimary"
             android:textSize="16sp"/>
 
@@ -87,7 +87,7 @@
             android:layout_marginBottom="5dp"
             android:gravity="center"
             android:text=""
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
     </LinearLayout>
