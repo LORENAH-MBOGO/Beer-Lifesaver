@@ -25,24 +25,36 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
         android:text="LOGIN"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="284dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="236dp"
+        android:layout_marginBottom="252dp"
         android:text="SIGN UP"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="529dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/aboutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="192dp"
+        android:layout_marginBottom="212dp"
         android:text="ABOUT US"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="400dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/signUpButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,9 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.skylar.beer_lifesaver.Constants.SANDBOX_BASE_URL;
+
+
 public class BeerClient {
     private static Retrofit retrofit = null;
 

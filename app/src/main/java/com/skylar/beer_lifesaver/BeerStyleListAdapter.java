@@ -1,6 +1,7 @@
 package com.skylar.beer_lifesaver;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -40,11 +43,6 @@ public class BeerStyleListAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(BeerStyleListAdapter.StyleViewHolder holder, int position) {
-        holder.bindStyle(mBeerStyles.get(position));
-    }
-
-    @Override
     public int getItemCount() {
         return mBeerStyles.size();
     }
@@ -54,7 +52,8 @@ public class BeerStyleListAdapter extends RecyclerView.Adapter {
         ImageView mStyleImageView;
         @BindView(R.id.styleNameTextView)
         TextView mStyleNameTextView;
-        @BindView(R.id.descriptionTextView) TextView mDescriptionNameTextView;
+        @BindView(R.id.descriptionTextView)
+        TextView mDescriptionNameTextView;
 
         private Context mContext;
 
@@ -66,18 +65,6 @@ public class BeerStyleListAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(this);
         }
 
-        public void bindStyle(BeerStyle beerStyle) {
-            mStyleNameTextView.setText(beerStyle.getStyleName());
-            mDescriptionNameTextView.setText(beerStyle.getDescription());
-
-            //random image generator
-            TypedArray imgs = mContext.getResources().obtainTypedArray(R.array.random_images_array);
-            Random random = new Random();
-            int rndInt = random.nextInt(imgs.length());
-            int resID = imgs.getResourceId(rndInt, 0);
-            mStyleImageView.setImageResource(resID);
-
-        }
 
         @Override
         public void onClick(View v) {
@@ -87,6 +74,7 @@ public class BeerStyleListAdapter extends RecyclerView.Adapter {
             intent.putExtra("beerStyles", Parcels.wrap(mBeerStyles));
             mContext.startActivity(intent);
         }
+
     }
 }
-}
+
