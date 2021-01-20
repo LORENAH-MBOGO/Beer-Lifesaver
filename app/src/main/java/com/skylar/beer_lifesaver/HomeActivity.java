@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.BeerInput)
@@ -26,6 +27,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
         ButterKnife.bind(this);
         mFindBeerStyle.setOnClickListener(this);
         mSaved.setOnClickListener(this);
