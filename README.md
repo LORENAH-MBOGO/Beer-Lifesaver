@@ -6,7 +6,7 @@
 
 ```bash
 
-Beer Lifesaver! is a mobile application that is built on Android framework to allows you to search for information about your favorite beer style using Brewerydb API.
+Beer Lifesaver! is a mobile application that is built on Android framework to allow you to search for information about your favorite beer style using Brewerydb API.
 
 ```
 ## Technologies Used
@@ -14,9 +14,9 @@ Beer Lifesaver! is a mobile application that is built on Android framework to al
 Java
 
 ## Installation
-* `https://github.com/LORENAH-MBOGO/CivilBay` this repository
+* `https://github.com/LORENAH-MBOGO/Beer-Lifesaver` this repository
 
-* `cd CivilBay`
+* `cd Beer-Lifesaver`
 
 ## Launching the Application
 
@@ -33,9 +33,10 @@ Java
 ## BDD
 
 ```bash
+View About Us section
 Sign up
-Login to view construction companies
-Navigate to home page with Up button
+Login to view beer styles
+
 
 ```
 
@@ -43,7 +44,7 @@ Navigate to home page with Up button
 
 ```bash
 
-https://github.com/LORENAH-MBOGO/CivilBay
+https://github.com/LORENAH-MBOGO/Beer-Lifesaver
 
 ```
 
