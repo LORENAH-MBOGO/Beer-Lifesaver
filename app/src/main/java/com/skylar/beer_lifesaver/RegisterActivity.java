@@ -1,9 +1,6 @@
 package com.skylar.beer_lifesaver;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -12,10 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
+import androidx.appcompat.app.AppCompatActivity;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisterActivity extends AppCompatActivity  {
     EditText name, email, phone, password;
@@ -29,16 +25,16 @@ public class RegisterActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        name = (EditText) findViewById(R.id.name);
-        email = (EditText) findViewById(R.id.email);
-        phone = (EditText) findViewById(R.id.phone);
-        password = (EditText) findViewById(R.id.password);
-        login = (TextView) findViewById(R.id.login);
-        register = (Button) findViewById(R.id.register);
-        nameError = (TextInputLayout) findViewById(R.id.nameError);
-        emailError = (TextInputLayout) findViewById(R.id.emailError);
-        phoneError = (TextInputLayout) findViewById(R.id.phoneError);
-        passError = (TextInputLayout) findViewById(R.id.passError);
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        phone = findViewById(R.id.phone);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.login);
+        register = findViewById(R.id.register);
+        nameError = findViewById(R.id.nameError);
+        emailError = findViewById(R.id.emailError);
+        phoneError = findViewById(R.id.phoneError);
+        passError = findViewById(R.id.passError);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
