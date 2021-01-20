@@ -5,4 +5,5 @@
     <item name="emailError" type="id" />
     <item name="nameError" type="id" />
     <item name="recyclerView" type="id" />
+    <item name="viewPager" type="id" />
 </resources>
