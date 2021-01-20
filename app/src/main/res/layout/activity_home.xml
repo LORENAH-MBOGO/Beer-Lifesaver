@@ -38,7 +38,7 @@
         android:textAlignment="center"
         android:singleLine="true"
         android:layout_weight="0.36"
-        android:layout_above="@+id/bFind"
+        android:layout_above="@+id/bSearch"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="87dp" />
 
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:textSize="17dp"
         android:text="Find"
-        android:id="@+id/bFind"
+        android:id="@+id/bSearch"
         android:textColor="@color/colorTextIcons"
         android:textStyle="normal|bold"
         android:background="@color/colorAccent"

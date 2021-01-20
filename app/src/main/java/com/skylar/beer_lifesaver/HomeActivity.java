@@ -1,7 +1,5 @@
 package com.skylar.beer_lifesaver;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,14 +7,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.BeerInput)
     EditText mBeerInput;
-    @BindView(R.id.bFind)
+    @BindView(R.id.bSearch)
     Button mFindBeerStyle;
     @BindView(R.id.tLogo)
     TextView mLogo;
@@ -30,21 +29,29 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
         ButterKnife.bind(this);
-        mFindBeerStyle.setOnClickListener(this);
+        mFindBeerStyle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userInput = mBeerInput.getText().toString();
+                Intent intent = new Intent(HomeActivity.this, BeerStyleListActivity.class);
+                intent.putExtra("beer", userInput);
+                startActivity(intent);
+
+//                Toast.makeText(HomeActivity.this, "We are here",Toast.LENGTH_LONG).show();
+
+            }
+        });
         mSaved.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view == mFindBeerStyle) {
-            String userInput = mBeerInput.getText().toString();
-            Intent intent = new Intent(HomeActivity.this, BeerStyleListActivity.class);
-            startActivity(intent);
-        }
-        if (view == mSaved) {
-            Intent intent = new Intent(HomeActivity.this, SavedBeerStyeListActivity.class);
-            startActivity(intent);
+
+            if (view == mSaved) {
+                Intent intent = new Intent(HomeActivity.this, SavedBeerStyeListActivity.class);
+                startActivity(intent);
+            }
+
         }
 
-    }
 }

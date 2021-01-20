@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.parceler.Parcels;
@@ -20,7 +19,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class BeerStyleListAdapter extends RecyclerView.Adapter {
+public class BeerStyleListAdapter extends RecyclerView.Adapter<BeerStyleListAdapter.StyleViewHolder> {
     private ArrayList<BeerStyle> mBeerStyles = new ArrayList<>();
     private Context mContext;
 
@@ -31,16 +30,17 @@ public class BeerStyleListAdapter extends RecyclerView.Adapter {
 
     @Override
     public BeerStyleListAdapter.StyleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beer_style_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beer_view_items, parent, false);
 
         StyleViewHolder viewHolder = new StyleViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(BeerStyleListAdapter.StyleViewHolder holder, int position) {
 
     }
+
 
     @Override
     public int getItemCount() {
@@ -64,7 +64,19 @@ public class BeerStyleListAdapter extends RecyclerView.Adapter {
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
         }
+        public void bindStyle(BeerStyle beerStyle, int position) {
 
+            mStyleNameTextView.setText(beerStyle.getData().get(position).getCategory().getName());
+            mDescriptionNameTextView.setText(beerStyle.getData().get(position).getDescription());
+
+            //random image generator
+            TypedArray imgs = mContext.getResources().obtainTypedArray(R.array.random_images_array);
+            Random random = new Random();
+            int rndInt = random.nextInt(imgs.length());
+            int resID = imgs.getResourceId(rndInt, 0);
+            mStyleImageView.setImageResource(resID);
+
+        }
 
         @Override
         public void onClick(View v) {
@@ -75,6 +87,9 @@ public class BeerStyleListAdapter extends RecyclerView.Adapter {
             mContext.startActivity(intent);
         }
 
+
+        }
     }
-}
+    
+
 
