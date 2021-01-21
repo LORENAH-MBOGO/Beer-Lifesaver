@@ -1,12 +1,13 @@
 
-package com.skylar.beer_lifesaver;
+package models;
 
-import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class BeerStyle implements Parcelable
 {
@@ -20,28 +21,6 @@ public class BeerStyle implements Parcelable
     @SerializedName("status")
     @Expose
     private String status;
-    public final static Parcelable.Creator<BeerStyle> CREATOR = new Creator<BeerStyle>() {
-
-
-        @SuppressWarnings({
-            "unchecked"
-        })
-        public BeerStyle createFromParcel(Parcel in) {
-            return new BeerStyle(in);
-        }
-
-        public BeerStyle[] newArray(int size) {
-            return (new BeerStyle[size]);
-        }
-
-    }
-    ;
-
-    protected BeerStyle(Parcel in) {
-        this.message = ((String) in.readValue((String.class.getClassLoader())));
-        in.readList(this.data, (com.skylar.beer_lifesaver.Datum.class.getClassLoader()));
-        this.status = ((String) in.readValue((String.class.getClassLoader())));
-    }
 
     /**
      * No args constructor for use in serialization
@@ -62,6 +41,36 @@ public class BeerStyle implements Parcelable
         this.data = data;
         this.status = status;
     }
+
+    protected BeerStyle(Parcel in) {
+        message = in.readString();
+        data = in.createTypedArrayList(Datum.CREATOR);
+        status = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(message);
+        dest.writeTypedList(data);
+        dest.writeString(status);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<BeerStyle> CREATOR = new Creator<BeerStyle>() {
+        @Override
+        public BeerStyle createFromParcel(Parcel in) {
+            return new BeerStyle(in);
+        }
+
+        @Override
+        public BeerStyle[] newArray(int size) {
+            return new BeerStyle[size];
+        }
+    };
 
     public String getMessage() {
         return message;
@@ -85,16 +94,6 @@ public class BeerStyle implements Parcelable
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(message);
-        dest.writeList(data);
-        dest.writeValue(status);
-    }
-
-    public int describeContents() {
-        return  0;
     }
 
 }

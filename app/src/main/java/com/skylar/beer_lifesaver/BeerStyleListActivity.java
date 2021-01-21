@@ -2,27 +2,25 @@ package com.skylar.beer_lifesaver;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import models.BeerStyle;
+import models.Datum;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BeerStyleListActivity extends AppCompatActivity {
-
     public static final String TAG = BeerStyleListActivity.class.getSimpleName();
     private static final String SANDBOX_KEY = Constants.SANDBOX_KEY;
     @BindView(R.id.errorTextView)
@@ -31,26 +29,21 @@ public class BeerStyleListActivity extends AppCompatActivity {
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
 
-    @BindView(R.id.recyclerView2)
+    @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
     private BeerStyleListAdapter mAdapter;
-    public ArrayList<BeerStyle> mBeerStyles = new ArrayList<>();
 
+    public List<Datum> mBeerStyles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.beer_style_list_item);
+        setContentView(R.layout.activity_beers);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String styles = intent.getStringExtra("userInput");
-        getBeerStyles(styles);
-    }
-    private void getBeerStyles(String styles) {
-        final BeerStyle beerStyle = new BeerStyle();
-
+        String styles = ((Intent) intent).getStringExtra("userInput");
 
         BeerApi client = BeerClient.getClient();
 
@@ -61,12 +54,13 @@ public class BeerStyleListActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<BeerStyle> call, Response<BeerStyle> response) {
                 hideProgressBar();
-                Log.d("error123", String.valueOf(response.body()));
+//                Log.v(TAG, Integer.toString(mBeerStyles.size()));
+//                Log.d("error123", String.valueOf(response.body()));
 
                 if (response.isSuccessful()) {
-                    List<Datum> styleList = response.body().getData();
-                    Toast.makeText(BeerStyleListActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    mAdapter = new BeerStyleListAdapter(getApplicationContext(), mBeerStyles);
+                    mBeerStyles = response.body().getData();
+
+                    mAdapter = new BeerStyleListAdapter(BeerStyleListActivity.this, mBeerStyles);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BeerStyleListActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
@@ -79,7 +73,7 @@ public class BeerStyleListActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<BeerStyle> call, Throwable t) {
-                Log.e(TAG, "onFailure: ", t);
+
                 hideProgressBar();
                 showFailureMessage();
             }
@@ -102,6 +96,6 @@ public class BeerStyleListActivity extends AppCompatActivity {
 
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
-    }
 
+    }
 }

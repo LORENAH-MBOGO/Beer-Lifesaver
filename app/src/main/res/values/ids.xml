@@ -6,4 +6,8 @@
     <item name="nameError" type="id" />
     <item name="recyclerView" type="id" />
     <item name="viewPager" type="id" />
+    <item name="errorTextView" type="id" />
+    <item name="progressBar" type="id" />
+    <item name="recyclerView2" type="id" />
+    <item name="listView" type="id" />
 </resources>

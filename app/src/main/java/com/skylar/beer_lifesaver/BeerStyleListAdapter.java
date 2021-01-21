@@ -1,59 +1,62 @@
 package com.skylar.beer_lifesaver;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.parceler.Parcels;
-
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import models.Datum;
 
 public class BeerStyleListAdapter extends RecyclerView.Adapter<BeerStyleListAdapter.StyleViewHolder> {
-    private ArrayList<BeerStyle> mBeerStyles = new ArrayList<>();
+
+    private List<Datum> mBeerStyles;
     private Context mContext;
 
-    public BeerStyleListAdapter(Context context, ArrayList<BeerStyle> beerStyles) {
+
+    public BeerStyleListAdapter(Context context, List<Datum> beerStyles) {
         mContext = context;
         mBeerStyles = beerStyles;
     }
 
     @Override
-    public BeerStyleListAdapter.StyleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beer_view_items, parent, false);
+    public BeerStyleListAdapter.StyleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beer_style_list_item, parent, false);
 
         StyleViewHolder viewHolder = new StyleViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(BeerStyleListAdapter.StyleViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull BeerStyleListAdapter.StyleViewHolder holder, int position) {
+        holder.bindStyle(mBeerStyles.get(position));
     }
-
 
     @Override
     public int getItemCount() {
-        return mBeerStyles.size();
+//        return 9;
+            return    mBeerStyles.size();
     }
 
-    public class StyleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.styleImageView)
-        ImageView mStyleImageView;
+    public class StyleViewHolder extends RecyclerView.ViewHolder {
+
         @BindView(R.id.styleNameTextView)
         TextView mStyleNameTextView;
-        @BindView(R.id.descriptionTextView)
-        TextView mDescriptionNameTextView;
+        //         still in development?
+//        @BindView(R.id.styleImageView)
+//        ImageView mStyleImageView;
+
+
+//         still in development?
+//        @BindView(R.id.descriptionTextView)
+//        TextView mDescriptionNameTextView;
 
         private Context mContext;
 
@@ -62,34 +65,92 @@ public class BeerStyleListAdapter extends RecyclerView.Adapter<BeerStyleListAdap
             ButterKnife.bind(this, itemView);
 
             mContext = itemView.getContext();
-            itemView.setOnClickListener(this);
-        }
-        public void bindStyle(BeerStyle beerStyle, int position) {
-
-            mStyleNameTextView.setText(beerStyle.getData().get(position).getCategory().getName());
-            mDescriptionNameTextView.setText(beerStyle.getData().get(position).getDescription());
-
-            //random image generator
-            TypedArray imgs = mContext.getResources().obtainTypedArray(R.array.random_images_array);
-            Random random = new Random();
-            int rndInt = random.nextInt(imgs.length());
-            int resID = imgs.getResourceId(rndInt, 0);
-            mStyleImageView.setImageResource(resID);
 
         }
 
-        @Override
-        public void onClick(View v) {
-            int itemPosition = getLayoutPosition();
-            Intent intent = new Intent(mContext, BeerStyleDetailActivity.class);
-            intent.putExtra("position", itemPosition);
-            intent.putExtra("beerStyles", Parcels.wrap(mBeerStyles));
-            mContext.startActivity(intent);
-        }
-
+        public void bindStyle(@NonNull Datum beerStyle) {
+            mStyleNameTextView.setText((CharSequence) beerStyle.getName());
 
         }
     }
-    
+}
 
 
+
+
+//    public class RestaurantViewHolder extends RecyclerView.ViewHolder {
+//        @BindView(R.id.restaurantImageView) ImageView mRestaurantImageView;
+//        @BindView(R.id.restaurantNameTextView) TextView mNameTextView;
+//        @BindView(R.id.categoryTextView) TextView mCategoryTextView;
+//        @BindView(R.id.ratingTextView) TextView mRatingTextView;
+//
+//
+//
+//
+//    @Override
+//    public BeerStyleListAdapter.StyleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beer_view_items, parent, false);
+//        StyleViewHolder viewHolder = new StyleViewHolder(view);
+//        return viewHolder;
+//    }
+//
+////    @NonNull
+////    @Override
+////    public BeerStyleListAdapter.StyleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+////        View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.beer_view_items, parent, false);
+//////        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beer_view_items, parent, false);
+////
+////        StyleViewHolder viewHolder = new StyleViewHolder(view);
+////        return viewHolder;
+////    }
+//
+//    @Override
+//    public void onBindViewHolder(@NonNull BeerStyleListAdapter.StyleViewHolder holder, int position) {
+//        holder.bindStyle(datumList.get(position));
+//    }
+//
+//
+//    @Override
+//    public int getItemCount() {
+//               return  9;
+////                   return   mBeerStyles.size();
+//    }
+//
+//    public class StyleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+//        @BindView(R.id.styleImageView)
+//        ImageView mStyleImageView;
+//        @BindView(R.id.styleNameTextView)
+//        TextView mStyleNameTextView;
+//        @BindView(R.id.descriptionTextView)
+//        TextView mDescriptionNameTextView;
+//
+//        private Context mContext;
+//
+//        public StyleViewHolder(View itemView) {
+//            super(itemView);
+//            ButterKnife.bind(this, itemView);
+//
+//            mContext = itemView.getContext();
+//            itemView.setOnClickListener(this);
+//        }
+//        public void bindStyle(@NonNull Datum data) {
+//
+//            mStyleNameTextView.setText(data.getName());
+//            mDescriptionNameTextView.setText(data.getDescription());
+//        }
+//
+//        @Override
+//        public void onClick(View v) {
+//            int itemPosition = getLayoutPosition();
+//            Intent intent = new Intent(mContext, BeerStyleDetailActivity.class);
+//            intent.putExtra("position", itemPosition);
+//            intent.putExtra("beerStyles", Parcels.wrap(datumList));
+//            mContext.startActivity(intent);
+//        }
+//
+//
+//        }
+//    }
+//
+//
+//

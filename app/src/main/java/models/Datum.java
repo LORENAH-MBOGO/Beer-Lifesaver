@@ -1,10 +1,14 @@
 
-package com.skylar.beer_lifesaver;
+package models;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Datum {
+public class Datum implements Parcelable
+{
 
     @SerializedName("id")
     @Expose
@@ -57,6 +61,42 @@ public class Datum {
     @SerializedName("updateDate")
     @Expose
     private String updateDate;
+    public final static Creator<Datum> CREATOR = new Creator<Datum>() {
+
+
+        @SuppressWarnings({
+            "unchecked"
+        })
+        public Datum createFromParcel(Parcel in) {
+            return new Datum(in);
+        }
+
+        public Datum[] newArray(int size) {
+            return (new Datum[size]);
+        }
+
+    }
+    ;
+
+    protected Datum(Parcel in) {
+        this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        this.categoryId = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        this.category = ((Category) in.readValue((Category.class.getClassLoader())));
+        this.name = ((String) in.readValue((String.class.getClassLoader())));
+        this.shortName = ((String) in.readValue((String.class.getClassLoader())));
+        this.description = ((String) in.readValue((String.class.getClassLoader())));
+        this.ibuMin = ((String) in.readValue((String.class.getClassLoader())));
+        this.ibuMax = ((String) in.readValue((String.class.getClassLoader())));
+        this.abvMin = ((String) in.readValue((String.class.getClassLoader())));
+        this.abvMax = ((String) in.readValue((String.class.getClassLoader())));
+        this.srmMin = ((String) in.readValue((String.class.getClassLoader())));
+        this.srmMax = ((String) in.readValue((String.class.getClassLoader())));
+        this.ogMin = ((String) in.readValue((String.class.getClassLoader())));
+        this.fgMin = ((String) in.readValue((String.class.getClassLoader())));
+        this.fgMax = ((String) in.readValue((String.class.getClassLoader())));
+        this.createDate = ((String) in.readValue((String.class.getClassLoader())));
+        this.updateDate = ((String) in.readValue((String.class.getClassLoader())));
+    }
 
     /**
      * No args constructor for use in serialization
@@ -240,6 +280,30 @@ public class Datum {
 
     public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(id);
+        dest.writeValue(categoryId);
+        dest.writeValue(category);
+        dest.writeValue(name);
+        dest.writeValue(shortName);
+        dest.writeValue(description);
+        dest.writeValue(ibuMin);
+        dest.writeValue(ibuMax);
+        dest.writeValue(abvMin);
+        dest.writeValue(abvMax);
+        dest.writeValue(srmMin);
+        dest.writeValue(srmMax);
+        dest.writeValue(ogMin);
+        dest.writeValue(fgMin);
+        dest.writeValue(fgMax);
+        dest.writeValue(createDate);
+        dest.writeValue(updateDate);
+    }
+
+    public int describeContents() {
+        return  0;
     }
 
 }
