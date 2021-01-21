@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home2"
+    android:background="@drawable/beer3"
     tools:context=".AboutActivity">
 
     <TextView
@@ -31,7 +31,7 @@
         android:fontFamily="cursive"
         android:text="Beer-Lifesaver is the perfect way to start up your evening after work, an outdoor event with your friends and more! Track down your favorite beers and see them in your saved style! Beer Lifesaver!!"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="20sp"
         android:textStyle="bold" />
 

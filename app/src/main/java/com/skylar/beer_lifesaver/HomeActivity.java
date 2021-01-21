@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +38,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("beer", userInput);
                 startActivity(intent);
 
-//                Toast.makeText(HomeActivity.this, "We are here",Toast.LENGTH_LONG).show();
+                Toast.makeText(HomeActivity.this, "Ahoy!! Here are your beers styles...",Toast.LENGTH_LONG).show();
 
             }
         });
@@ -48,8 +49,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
             if (view == mSaved) {
-                Intent intent = new Intent(HomeActivity.this, SavedBeerStyeListActivity.class);
-                startActivity(intent);
+                Toast.makeText(this, "None for now", Toast.LENGTH_LONG).show();
             }
 
         }
