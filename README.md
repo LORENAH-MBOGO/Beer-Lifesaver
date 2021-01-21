@@ -1,4 +1,7 @@
 # Beer Lifesaver!
+
+![Scrrn shot of the application](beer.jpg?raw=true)
+
 #### Jan 16th 2021
 #### By **Lorenah M.**
 
