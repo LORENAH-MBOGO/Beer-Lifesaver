@@ -1,4 +1,4 @@
-package com.skylar.beer_lifesaver;
+package network;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -1,6 +1,5 @@
 # Beer Lifesaver!
 
-![alt text](http://url/to/beer.jpg)
 #### Jan 16th 2021
 #### By **Lorenah M.**
 

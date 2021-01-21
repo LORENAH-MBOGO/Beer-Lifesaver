@@ -1,4 +1,4 @@
-package com.skylar.beer_lifesaver;
+package com.skylar.beer_lifesaver.adapters;
 
 public class BeerStylePagerAdapter  {
 

@@ -12,10 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import com.skylar.beer_lifesaver.adapters.BeerStyleListAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import models.BeerStyle;
-import models.Datum;
+import network.BeerApi;
+import network.BeerClient;
+import network.BeerStyle;
+import network.Datum;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

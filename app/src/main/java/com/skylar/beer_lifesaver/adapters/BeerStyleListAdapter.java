@@ -1,4 +1,4 @@
-package com.skylar.beer_lifesaver;
+package com.skylar.beer_lifesaver.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,11 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.skylar.beer_lifesaver.R;
+
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import models.Datum;
+import network.Datum;
 
 public class BeerStyleListAdapter extends RecyclerView.Adapter<BeerStyleListAdapter.StyleViewHolder> {
 
