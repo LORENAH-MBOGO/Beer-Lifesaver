@@ -1,6 +1,7 @@
 # Beer Lifesaver!
 #### Jan 16th 2021
-![Beer Lifesaver](http://github.com/LORENAH-MBOGO/Beer-Lifesaver/screenshots/beer.jpg?raw=true) 
+
+![Beer Lifesaver](http://github.com/LORENAH-MBOGO/Beer-Lifesaver/screenshots/beer.png) 
 
 #### By **Lorenah M.**
 
