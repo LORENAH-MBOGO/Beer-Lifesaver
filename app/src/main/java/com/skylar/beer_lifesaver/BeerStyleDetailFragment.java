@@ -3,6 +3,9 @@ package com.skylar.beer_lifesaver;
 import androidx.fragment.app.Fragment;
 
 public class BeerStyleDetailFragment extends Fragment {
+
+    //    not using this for now...
+
 //    @BindView(R.id.styleNameTextView)
 //    TextView mStyleName;
 //    @BindView(R.id.saveButton)

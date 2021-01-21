@@ -1,6 +1,10 @@
 package com.skylar.beer_lifesaver;
 
 public class BeerStylePagerAdapter  {
+
+//    not using this for now ...
+
+
 //    private ArrayList<BeerStyle> mBeerStyles;
 //
 //    public BeerStylePagerAdapter(@NonNull FragmentManager fm, ArrayList<BeerStyle> behavior) {

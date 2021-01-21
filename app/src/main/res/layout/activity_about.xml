@@ -32,7 +32,7 @@
         android:text="Beer-Lifesaver is the perfect way to start up your evening after work, an outdoor event with your friends and more! Track down your favorite beers and see them in your saved style! Beer Lifesaver!!"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -52,7 +52,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp"
-        android:text="Go Home"
+        android:text="My Style Search"
         android:textColor="@color/black"
         android:background="@color/colorPrimary"/>
 
