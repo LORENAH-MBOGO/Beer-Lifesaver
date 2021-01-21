@@ -34,8 +34,9 @@ Java
 
 ```bash
 View About Us section
-Sign up
-Login to view beer styles
+Navigate to search page
+Enter any beer style in search bar 
+View different names of beerstyles
 
 
 ```
